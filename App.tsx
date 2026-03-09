@@ -4,32 +4,32 @@
  */
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AnimatePresence } from 'motion/react';
 import Layout from './components/Layout';
-import Login from './pages/Login';
+import Auth from './pages/Auth';
 import Dashboard from './pages/Dashboard';
-import Debugger from './pages/Debugger';
 import Analysis from './pages/Analysis';
+import Debugger from './pages/Debugger';
 import Compiler from './pages/Compiler';
-import Optimization from './pages/Optimization';
-import Rewriting from './pages/Rewriting';
+import Performance from './pages/Performance';
+import Rewriter from './pages/Rewriter';
 
-export default function App() {
+function App() {
   return (
     <Router>
-      <Layout>
-        <AnimatePresence mode="wait">
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/debugger" element={<Debugger />} />
-            <Route path="/analysis" element={<Analysis />} />
-            <Route path="/compiler" element={<Compiler />} />
-            <Route path="/optimization" element={<Optimization />} />
-            <Route path="/rewriting" element={<Rewriting />} />
-          </Routes>
-        </AnimatePresence>
-      </Layout>
+      <Routes>
+        <Route path="/login" element={<Auth />} />
+
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="analysis" element={<Analysis />} />
+          <Route path="debugger" element={<Debugger />} />
+          <Route path="compiler" element={<Compiler />} />
+          <Route path="performance" element={<Performance />} />
+          <Route path="rewriter" element={<Rewriter />} />
+        </Route>
+      </Routes>
     </Router>
   );
 }
+
+export default App;
