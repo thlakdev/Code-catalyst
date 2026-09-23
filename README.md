@@ -1,50 +1,174 @@
-General Description
+# Code Catalyst
 
-We Team cloud crew came up with the solution of solving the problem of every coder who wants their program to be precise and accurate to make this happen we purpose a Ai review platform 
-The major difference between our idea and pre existing code review platforms are we focus on the learning curve of the user making sure to improve their skills by providing the clean analysis of where their program needs to be fixed and then we provide details to fix that problem this helps user lean from their mistakes and improve thier skills
-Novelty / Uniqueness:
+Code Catalyst is an AI-powered developer learning platform designed to help programmers find bugs, understand the root cause, and learn the correct fix through actionable code review.
 
-Our core concept:
-Find the bug, learn the fix. Empowering developers to grow through actionable code review
-While traditional code review platforms primarily focus on identifying syntax errors and bugs, our solution is fundamentally designed around the developer's learning curve. We go beyond simply pointing out flaws by providing a comprehensive, clean analysis of exactly why a piece of code is suboptimal or failing. Furthermore, we pair this analysis with detailed, actionable steps and educational context to resolve the issue. This approach ensures that users not only fix their immediate problems but also deeply understand the underlying concepts, allowing them to learn from their mistakes and continuously elevate their programming skills over time.
-Business / Social Impact:
+The platform goes beyond simple bug detection. It explains what is wrong, why it is wrong, and how to fix it in a way that helps developers improve their skills over time.
 
-Developers build confidence by understanding the core concepts of a fix, preventing repeated mistakes.
-The platform acts as an on-demand mentor for self-taught programmers or students without direct guidance.
-Continuous feedback naturally improves a user's overall coding proficiency and grasp of design patterns.
-Technology Architecture:
+## Why this project exists
 
-Frontend
-React.js
-Backend
-Node.js (Express) or Python (FastAPI)
-Data base
-Mongodb
-Code Analysis Engine
-LLM APIs (OpenAI API, Gemini API, or Anthropic API)
-Infrastructure & Hosting
-Vercel(Frontend)
-Render, Heroku, or AWS (Backend &Database)
-GitHub Actions (CI/CD)
-Scope of the Work:
+Traditional code review tools mostly focus on identifying syntax issues or runtime bugs. Code Catalyst focuses on the developer learning curve.
 
-Phase 1: Planning & Design
-Define core features and user flows.
-Create wireframes for the code editor and dashboard.
-Select the technology stack and database schema.
-Phase 2: Frontend Development
-Build the user interface and dashboard.
-Integrate an in-browser code editor (like Monaco or CodeMirror).
-Create the code submission forms and feedback display.
-Phase 3: Backend & Database
-Set up the server and REST/GraphQL API endpoints.
-Design the database for users, submissions, and feedback.
-Implement secure user authentication and session management.
-Phase 4: AI & Analysis Integration
-Connect static analysis tools to check for basic syntax errors.
-Integrate LLM APIs to generate detailed, educational explanations for fixes.
-Format the analysis output for clear, structured display on the frontend.
-Phase 5: Testing & Deployment
-Test the platform for bugs and ensure the AI provides accurate, safe feedback.
-Set up hosting infrastructure and CI/CD pipelines.
-Push the project live for initial user testing.
+Instead of just pointing out a problem, the platform helps users:
+
+- identify the bug
+- understand the root cause
+- see the correct fix
+- learn the underlying concept behind the solution
+
+## Core features
+
+- AI code review for submitted code
+- Bug detection and debugging support
+- Compile-style feedback and execution simulation
+- Performance analysis and complexity suggestions
+- Code rewriting and modernization recommendations
+- Educational explanations designed to help developers learn
+
+## Tech stack
+
+### Frontend
+- React
+- Vite or React app structure
+- CSS for styling
+
+### Backend
+- Python
+- FastAPI
+- Google Gemini API for AI-generated feedback
+
+### Architecture
+- Frontend client for user interaction
+- Python backend for API endpoints
+- AI analysis layer for review, debugging, optimization, and refactoring
+
+## Project structure
+
+```text
+Code-catalyst/
+├── App.css
+├── App.jsx
+├── README.md
+├── index.css
+├── index.html
+├── main.jsx
+├── main.py
+├── metadata.json
+├── package.json
+├── package-lock.json
+├── test_models.py
+└── ...
+```
+
+## Backend API overview
+
+The backend service exposes several endpoints in `main.py`:
+
+- `POST /review` — general code review and explanation
+- `POST /debug` — bug detection and root-cause analysis
+- `POST /compile` — compile/interpreter-style feedback
+- `POST /performance` — performance analysis with complexity suggestions
+- `POST /rewrite` — refactor code into cleaner modern code
+
+## Getting started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/thlakdev/Code-catalyst.git
+cd Code-catalyst
+```
+
+### 2. Set up the backend
+
+Create a Python virtual environment and install the required dependencies:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate   # On Windows: .venv\Scripts\activate
+pip install fastapi uvicorn google-generativeai python-dotenv
+```
+
+Create a `.env` file in the project root:
+
+```env
+GEMINI_API_KEY=your_api_key_here
+```
+
+Then run the backend:
+
+```bash
+uvicorn main:app --reload
+```
+
+### 3. Set up the frontend
+
+Install frontend dependencies:
+
+```bash
+npm install
+```
+
+Start the app:
+
+```bash
+npm run dev
+```
+
+## Environment variables
+
+| Variable | Description |
+| --- | --- |
+| `GEMINI_API_KEY` | API key used to authenticate with Google Gemini |
+
+## Example workflow
+
+1. Open the app in the browser.
+2. Paste or write code into the editor.
+3. Select the language.
+4. Run review/debug/compile/performance/refactor actions.
+5. Read the explanation and compare it with the fix.
+6. Learn from the output and improve your coding skills.
+
+## Value proposition
+
+Code Catalyst is designed to act like a mentor for developers, not just a validator.
+
+It helps users:
+
+- improve confidence
+- learn from mistakes
+- understand code quality
+- build stronger debugging habits
+- reduce repeated errors over time
+
+## Roadmap
+
+- improve UI/UX for better learning outcomes
+- support more programming languages
+- generate structured learning summaries after each review
+- add user accounts and saved code history
+- add code comparison between incorrect and corrected versions
+- deploy the project for live usage
+
+## Contributing
+
+Contributions are welcome.
+
+If you want to contribute:
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Open a pull request
+
+## License
+
+This project currently does not specify a license. If you plan to publish it publicly, it is recommended to add an open-source license such as MIT.
+
+## Notes
+
+This project is a strong concept with a clear educational focus. It can be improved further by polishing the UI, securing API credentials, and refining the backend logic to provide more consistent and structured responses.
+
+---
+
+Code Catalyst: Find the bug, learn the fix.
